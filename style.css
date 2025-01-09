@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -100;
+    opacity: 0.7;
+}
+
+.bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures the video covers the entire screen */
+}
+
+.container {
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h1 {
+    font-size: 80px;
+    margin-bottom: 40px;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: 400px;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    width: 360px;
+    height: 12px;
+    background-color: #d1d1d1;
+    margin: auto;
+    margin-bottom: 100px;
+    opacity: 0.8;
+    position: relative;
+}
+
+.progress-bar::before {
+    content: "0%";
+    position: absolute;
+    left: 0;
+    font-size: 12px;
+    bottom: -18px;
+}
+
+.progress-bar::after {
+    content: "100%";
+    position: absolute;
+    right: 0;
+    font-size: 12px;
+    bottom: -18px;
+}
+
+.progress-bar span {
+    display: block;
+    width: 80%;
+    height: 12px;
+    background-color: #6A0DAD;
+    animation: fill 1s ease-in 1;
+}
+
+@keyframes fill {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 80%;
+    }
+}
+
+.sm {
+    position: relative;
+    display: inline-block;
+}
+
+.sm a {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background-color: #6A0DAD;
+    line-height: 60px;
+    color: #fff;
+    font-size: 22px;
+    border-radius: 50%;
+    margin: 0 10px;
+    opacity: 0.7;
+    transition: 0.3s linear;
+}
+
+.sm a:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.floating-text {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    background-color: #666666;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 25px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.sm a:hover+.floating-text {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
+}
